@@ -1,0 +1,156 @@
+@mixin linkEffect {
+  &:hover {
+    color: var(--taupe);
+    text-shadow: 0 0 0.5em var(--turquoise);
+  }
+  text-decoration: none;
+  color: var(--turquoise);
+  transition: color 0.2s ease-out, text-shadow 0.2s ease-out;
+}
+
+@mixin title {
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  text-transform: uppercase;
+  font-family: "Audiowide", sans-serif;
+}
+
+/****************************************************************************/
+/********************************** BORDER **********************************/
+/****************************************************************************/
+
+@mixin border($position: "all") {
+  &:before {
+    z-index: 0;
+    content: "";
+    position: absolute;
+    transition: box-shadow 0.2s ease-out;
+
+    @if ($position== "all") {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--green);
+    } @else if ($position== "top") {
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-top: 1px solid var(--green);
+    } @else if ($position== "bottom") {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid var(--green);
+    } @else if ($position== "left") {
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-left: 1px solid var(--green);
+    } @else if ($position== "right") {
+      top: 0;
+      right: 0;
+      height: 100%;
+      border-left: 1px solid var(--green);
+    }
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  position: relative;
+  z-index: 1;
+}
+
+/*************************************************************************/
+/********************************** ROW **********************************/
+/*************************************************************************/
+
+@mixin row($gutter: 0) {
+  gap: $gutter;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/**************************************************************************/
+/*************************** GRID SYSTEM MODERN ***************************/
+/**************************************************************************
+
+
+@mixin grid-child($size: 0, $gap: 0px) {
+  @if ($size==0) {
+    flex: 1 0;
+  } @else {
+    flex: 1 calc((100% / $size) - $gap);
+  }
+}
+
+@mixin grid($size: 0, $gap: 0px) {
+  & > * {
+    @include grid-child($size, $gap);
+  }
+  @include row($gap);
+}
+
+*[class*="grid"] {
+  @include row;
+}
+
+.grid {
+  & > * {
+    flex: 1 0;
+  }
+}
+
+@for $i from 1 through 12 {
+  .grid-#{4} > * {
+    @include grid-child($i);
+  }
+}
+
+/*******************************************************************************/
+/******************************* GRID SYSTEM OLD *******************************/
+/*******************************************************************************/
+
+@mixin grid($size: 0, $gap: 0px) {
+  & > * {
+    @if ($size==0) {
+      flex: 1 0;
+    }
+    /*
+    @else if ($size==1) {
+      flex: 1 calc((100% / 1) - $gap);
+    }
+    
+    @else if ($size==2) {
+      flex: 1 calc((100% / 2) - $gap);
+    }
+    
+    @else if ($size==3) {
+      flex: 1 calc((100% / 3) - $gap);
+    }
+    */
+    @else {
+      flex: 1 calc((100% / $size) - $gap);
+    }
+  }
+
+  gap: $gap;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid {
+  @include grid;
+}
+
+@for $i from 1 through 12 {
+  .grid-#{$i} {
+    @include grid($i);
+  }
+}

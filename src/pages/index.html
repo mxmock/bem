@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__title">
+        <h1>
+          <span>BEM</span>
+          <span>CHEAT SHEET</span>
+        </h1>
+      </div>
+    </header>
+
+    <div class="intro">
+      <p>
+        When it comes to finding the right class name, it can quickly drive you
+        to despair. Even the most experienced CSS developers don't always find
+        the right class name right away. This tool aims to help you to not get
+        lost in the BEM cosmos by giving you naming-suggestions for some of the
+        most common web components.
+      </p>
+      <p>
+        If you still have no idea what BEM means, we have added some
+        <a href="#">helpful links</a>
+        below. For questions or suggestions for improvement, find me on
+        <a href="#">Twitter</a>. And last but not least…if you like the little
+        Astronaut, we made some <a href="#">Wallpapers</a>.
+      </p>
+    </div>
+
+    <div class="layout">
+      <aside>
+        <nav class="nav">
+          <ul class="nav__list nav__list--main">
+            <li>
+              <a href="#" class="nav__link nav__link--main">Standard blocks</a>
+              <ul class="nav__list">
+                <li>
+                  <a class="nav__link" href="#">Breadcrumb</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">Button</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">Card I</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">Card II</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">List</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">Navigation</a>
+                </li>
+                <li>
+                  <a class="nav__link" href="#">Tabs</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav__link nav__link--main">Form blocks</a>
+              <ul class="nav__list">
+                <li>
+                  <a href="#" class="nav__link">Checkbox</a>
+                </li>
+                <li>
+                  <a href="#" class="nav__link">Custom Checkbox</a>
+                </li>
+                <li>
+                  <a href="#" class="nav__link">Input Group</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav__link nav__link--main">Layout Blocks</a>
+              <ul class="nav__list">
+                <li>
+                  <a href="#" class="nav__link">Imposter</a>
+                </li>
+                <li>
+                  <a href="#" class="nav__link">Sidebar</a>
+                </li>
+                <li>
+                  <a href="#" class="nav__link">Stack</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav__link nav__link--main">Further reading</a>
+            </li>
+          </ul>
+        </nav>
+
+        <label for="html" class="show-html">
+          <input id="html" name="html" type="checkbox" />
+          <span>Show html</span>
+        </label>
+      </aside>
+
+      <main id="top">
+        <section class="section">
+          <h2 class="section__title">Standard Blocks</h2>
+          <p class="section__intro">
+            In this section you will find elements that can be found on many
+            websites and web applications. In general, it is advisable to
+            consider whether a class name can be derived from the semantic HTML.
+            For example <code>card__header</code>, <code>card__footer</code> or
+            <code>list__item</code>.
+          </p>
+
+          <article class="article">
+            <div class="article__header">
+              <h3 class="article__title">Breadcrumb</h3>
+              <a href="#top" class="article__arrow"><span></span></a>
+            </div>
+
+            <div class="article__card">
+              <div class="dashed-border" data-name="breadcrumb">
+                <div class="dashed-border row" data-name="breadcrumb__list">
+                  <div class="dashed-border" data-name="breadcrumb__item">
+                    <div
+                      class="dashed-border has-content"
+                      data-name="breadcrumb__link"
+                    >
+                      <span>Home</span>
+                    </div>
+                  </div>
+                  <div class="dashed-border" data-name="breadcrumb__item">
+                    <div
+                      class="dashed-border has-content"
+                      data-name="breadcrumb__link"
+                    >
+                      <span>About</span>
+                    </div>
+                  </div>
+                  <div class="dashed-border" data-name="breadcrumb__item">
+                    <div
+                      class="dashed-border has-content"
+                      data-name="breadcrumb__link"
+                    >
+                      <span>Vision</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="article__note">
+              <p>
+                <span>note:</span>Don't use something like
+                <code>Breadcrumb Navigation</code>
+                for the aria-label as this would result in a screenreader
+                announcing navigation twice.
+              </p>
+            </div>
+          </article>
+
+          <article class="article">
+            <div class="article__header">
+              <h3 class="article__title">Button</h3>
+              <a href="#top" class="article__arrow"><span></span></a>
+            </div>
+
+            <div class="article__card">
+              <div class="dashed-border row" data-name="button">
+                <div
+                  class="dashed-border has-content"
+                  data-name="button__prepend"
+                >
+                  <span class="button__prepend"> &nbsp;🚀 </span>
+                </div>
+                <div class="dashed-border has-content" data-name="button__body">
+                  <span>My Button</span>
+                </div>
+                <div
+                  class="dashed-border has-content"
+                  data-name="button__append"
+                >
+                  <span class="button__append"> &nbsp;👨‍🚀 </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="article__note">
+              <p>
+                <span>note:</span>This Button is more a link than a button. If
+                you have a button in a form that is not a link, you should use a
+                <code>&#60;button&#62;</code> element instead. Also note that
+                most of the time you don't need an extra
+                <code>button__body</code> element.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <section class="section hide">
+          <div class="test">
+            <div class="test__child">testBlock</div>
+            <div class="test__child">testBlock</div>
+            <div class="test__child">testBlock</div>
+            <div class="test__child">testBlock</div>
+            <div class="test__child">testBlock</div>
+            <div class="test__child">testBlock</div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

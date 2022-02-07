@@ -1,0 +1,52 @@
+aside {
+  .nav {
+    &__list {
+      &--main {
+        gap: 24px;
+      }
+    }
+    &__link {
+      &--main {
+        font-weight: bold;
+        color: var(--taupe);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      @include linkEffect;
+      font-size: 1.8rem;
+      line-height: 32px;
+      @media (max-width: 1400px) {
+        font-size: 1.4rem;
+        line-height: 26px;
+      }
+    }
+    @include border("bottom");
+    padding-bottom: 32px;
+  }
+  .show-html {
+    gap: 8px;
+    cursor: pointer;
+    padding: 16px 0;
+    font-size: 16px;
+    align-items: center;
+    flex-direction: row;
+  }
+  @include border;
+  top: 0;
+  left: 0;
+  flex: 1 100%;
+  padding: 24px;
+  overflow: auto;
+
+  @media (min-width: 736px) {
+    top: 24px;
+    flex: 1 0;
+    max-width: 256px;
+    position: sticky;
+    height: calc(100vh - 48px);
+  }
+  
+  @media (min-width: 1400px) {
+    max-width: initial;
+  }
+}

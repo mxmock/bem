@@ -1,0 +1,114 @@
+@keyframes float {
+  0% {
+    transform: rotate(-6deg) translateY(-50%);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  25% {
+    transform: rotate(6deg) translateY(-50%);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-50%);
+  }
+  75% {
+    transform: rotate(6deg) translateY(-50%);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(-50%);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(14deg) translateY(-58%);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-48%);
+  }
+  100% {
+    transform: rotate(14deg) translateY(-42%);
+  }
+}
+
+.header {
+  &__title {
+    h1 {
+      span {
+        &:first-child {
+          @include title;
+          font-size: 13.4rem;
+          text-shadow: 0 0 0.5rem var(--cyan), 0 0 0.25rem var(--cyan);
+        }
+        &:last-child {
+          font-weight: 300;
+          font-size: 3.9rem;
+          text-shadow: none;
+          color: var(--turquoise);
+          text-transform: uppercase;
+        }
+        line-height: 1;
+        letter-spacing: 14px;
+      }
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      // transform: translateY(-50%);
+      right: -58%;
+      width: 250px;
+      height: 68px;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform-origin: left center;
+      animation: float 24s ease-in-out infinite;
+      background-image: url(https://9elements.com/bem-cheat-sheet/src/img/cable.svg);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      // transform: translateY(-50%);
+      right: -74%;
+      width: 160px;
+      height: 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: rotate 8s ease-in-out alternate infinite;
+      background-image: url(https://9elements.com/bem-cheat-sheet/src/img/astronaut.svg);
+    }
+
+    padding: 64px 0;
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(https://9elements.com/bem-cheat-sheet/src/img/moon.svg);
+  }
+  padding: 24px 0;
+  align-items: center;
+}
+
+.intro {
+  p {
+    a {
+      @include linkEffect;
+      display: inline-block;
+    }
+    display: block;
+    margin: 0 auto;
+    max-width: 1024px;
+    text-align: center;
+    @media (max-width: 1400px) {
+      max-width: 70%;
+    }
+    @media (max-width: 1000px) {
+      max-width: 90%;
+    }
+  }
+  gap: 16px;
+  padding-top: 40px;
+  align-items: center;
+  padding-bottom: 110px;
+}
